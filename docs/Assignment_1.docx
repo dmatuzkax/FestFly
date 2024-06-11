@@ -1,0 +1,10 @@
+Idea 1 - FestFly
+Description: The purpose of the web application is to help users find the cheapest flight tickets to their favorite artist’s concert venues. In order to use the app, you need to sign in with your account, which will let the program store the usage data and retrieve it later. As the user inputs the name of the musical artist whose concert they want to attend, they receive possible options. After selecting the desired option, the app will return the user the cheapest flight ticket to go to the concert.
+
+APIs used: Ticketmaster and TravelAdvisor
+Idea 2 - FitFusion
+Description: The application helps users track their health and wellness goals by integrating fitness data with nutritional information and wellness resources. A person's fitness data is retrieved from their tracker account and used to recommend healthy diet and meal options depending on the amount of calories, possible allergies and other factors.
+
+APIs used: Fitbit and Edamam
+
+
