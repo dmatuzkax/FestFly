@@ -95,6 +95,7 @@ h1 {
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
+  height: 72px;
 }
 
 .card-item-date {
@@ -115,6 +116,7 @@ h1 {
   margin: 10px; 
   margin-left: 0px;
   margin-right: 72px;
+  margin-bottom: 20px;
 }
 
 .card-item-date .day {

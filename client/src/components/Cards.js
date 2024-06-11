@@ -19,17 +19,12 @@ function Cards() {
     }, []);
 
     return (
-      // <div>
-      //     {events.length != 0 ? events.map((concert, index) => {
-      //       <ConcertCard concert={concert} />
-      //     })[1] : <p>No Events Set For This Artist </p>}
-      // </div>
       <div className='cards'>
       <div className="cards__container">
         <div className="cards__wrapper">
           {events.length !== 0 ? (
             <ul className="cards__items">
-              {events.map((concert, index) => (
+              {events.filter(concert => "_embedded" in concert).map((concert, index) => (
                 <ConcertCard key={index} concert={concert} />
               ))}
             </ul>
@@ -52,7 +47,7 @@ function Cards() {
 
     return(
       <li className='cards__item'>
-        <CardItem  src = {src} name = {name} date = {date} time = {time} venue = {venue} city = {city} country = {country} />
+        <CardItem  src = {src} name = {name} date = {date} time = {time || "TBD"} venue = {venue} city = {city} country = {country} />
       </li>
       
     );
