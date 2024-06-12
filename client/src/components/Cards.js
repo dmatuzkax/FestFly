@@ -1,23 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 import CardItem from './CardItem'
 import './Cards.css'
+import { EventsContext } from './EventsContext';
 
 function Cards() {
+  const { events, searchPerformed } = useContext(EventsContext);
 
-  const [events, setEvents] = useState([]);
+  // const [events, setEvents] = useState([]);
 
 
-    useEffect(() => {
-        fetch('http://localhost:3001')
-            .then(response => response.json())
-            .then(data => {
-                setEvents(data);
-            })
-            .catch(error => {
-                console.error('Error fetching concert data:', error);
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch('http://localhost:3001')
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             setEvents(data);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error fetching concert data:', error);
+    //         });
+    // }, []);
 
+  if (!searchPerformed) {
+    return null;
+  } else {
     return (
       <div className='cards'>
       <div className="cards__container">
@@ -35,6 +40,7 @@ function Cards() {
       </div>
     </div>
   );
+  } 
 
   function ConcertCard({ concert }) {
     const { name, dates, _embedded, images } = concert;
