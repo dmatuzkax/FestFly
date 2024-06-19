@@ -2,24 +2,25 @@ import React, { useContext, useState } from 'react'
 import './SearchBar.css';
 import axios from 'axios'
 import { EventsContext } from './EventsContext';
+import { useNavigate } from 'react-router-dom';
 
-function SearchBar() {
+function SearchBar(props) {
 
   const [inputValue, setInputValue] = useState('');
   const { setEvents, setSearchPerformed } = useContext(EventsContext);
+  const navigate = useNavigate();
 
   const handleKeyPress = async (event) => {
     if (event.key === 'Enter') {
       const artist = inputValue.trim();
-      console.log(artist);
       setInputValue('');
-      if (artist != '') {
+      if (artist !== '') {
         try {
           
           const response = await axios.post('http://localhost:3001', { artist });
           setEvents(response.data);
           setSearchPerformed(true);
-          console.log('Response from backend:', response.data);
+          navigate('/events');
         } catch (error) {
           console.error('Error:', error);
         }
@@ -28,8 +29,10 @@ function SearchBar() {
   };
 
   return (
-      <input type="text" class="search-bar" placeholder="Search for your Favorite Artists..." value={inputValue}
-      onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleKeyPress} />
+      <form onSubmit={(e) => e.preventDefault()}>
+        <input type='text' className={props.size === 'small' ? 'small-search-bar' :'search-bar'} placeholder='Search for your Favorite Artists...' value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleKeyPress} />
+      </form>
   )
 }
 

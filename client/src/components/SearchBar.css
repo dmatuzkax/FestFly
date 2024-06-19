@@ -1,14 +1,33 @@
 .search-bar {
-  width: 40%;
+  width: 600px;
   height: 54px;
   background-color: #fff;
   border: 1px solid lightslategray;
   border-radius: 36px;
   padding: 20px;
-  font-size: 24px ;
+  font-size: 24px;
+  display: flex;
 }
 
+
 .search-bar:focus {
-  border-color: #242424;
+  border-color: lightslategrey;
+  outline: none;
+}
+
+.small-search-bar{
+  width: 300px;
+  height: 36px;
+  background-color: #fff;
+  border: 1px solid lightslategray;
+  border-radius: 18px;
+  padding: 10px;
+  margin: 20px;
+  font-size: 14px;
+  display: flex;
+}
+
+.small-search-bar:focus {
+  border-color: lightslategrey;
   outline: none;
 }

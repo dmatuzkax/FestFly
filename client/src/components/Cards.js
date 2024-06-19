@@ -6,20 +6,6 @@ import { EventsContext } from './EventsContext';
 function Cards() {
   const { events, searchPerformed } = useContext(EventsContext);
 
-  // const [events, setEvents] = useState([]);
-
-
-    // useEffect(() => {
-    //     fetch('http://localhost:3001')
-    //         .then(response => response.json())
-    //         .then(data => {
-    //             setEvents(data);
-    //         })
-    //         .catch(error => {
-    //             console.error('Error fetching concert data:', error);
-    //         });
-    // }, []);
-
   if (!searchPerformed) {
     return null;
   } else {
