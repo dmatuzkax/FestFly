@@ -1,13 +1,13 @@
 import React from 'react'
 import '../App.css'
 import HeroSection from '../components/HeroSection'
-import Cards from '../components/Cards';
+import FlightCards from '../components/FlightCards';
 
 function Home() {
   return (
-    <div className='page page-exit'>
+    <div>
       <HeroSection />
-      <Cards />
+      <FlightCards />
     </div>
   );
 }

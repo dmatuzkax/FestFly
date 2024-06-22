@@ -9,7 +9,6 @@
   display: flex;
 }
 
-
 .search-bar:focus {
   border-color: lightslategrey;
   outline: none;

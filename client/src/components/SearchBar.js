@@ -1,29 +1,44 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './SearchBar.css';
 import axios from 'axios'
 import { EventsContext } from './EventsContext';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function SearchBar(props) {
 
   const [inputValue, setInputValue] = useState('');
   const { setEvents, setSearchPerformed } = useContext(EventsContext);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedQuery = localStorage.getItem('searchQuery');
+    if (savedQuery && location.pathname !== '/') {
+      setInputValue(savedQuery);
+      fetchSearchResults(savedQuery);
+      setInputValue('');
+    }
+  }, [location.pathname]);
+
+  const fetchSearchResults = async (query) => {
+    try {
+      const response = await axios.post('http://localhost:3001/events/:artist', { artist: query });
+      setEvents(response.data);
+      setSearchPerformed(true);
+      navigate(`/events/${query}`);
+      
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   const handleKeyPress = async (event) => {
     if (event.key === 'Enter') {
       const artist = inputValue.trim();
       setInputValue('');
       if (artist !== '') {
-        try {
-          
-          const response = await axios.post('http://localhost:3001', { artist });
-          setEvents(response.data);
-          setSearchPerformed(true);
-          navigate('/events');
-        } catch (error) {
-          console.error('Error:', error);
-        }
+          localStorage.setItem('searchQuery', artist);
+          fetchSearchResults(artist);
       }
     }
   };

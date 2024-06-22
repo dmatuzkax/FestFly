@@ -15,7 +15,7 @@ function App() {
           <Navbar/>
           <Routes>
             <Route path="/" exact element={<Home />} />
-            <Route path="/events" exact element={<Events />} />
+            <Route path="/events/:artist" exact element={<Events />} />
           </Routes>  
         </Router>
       </EventsProvider>

@@ -1,11 +1,11 @@
 import React from 'react'
 import '../App.css'
-import Cards from '../components/Cards';
+import EventCards from '../components/EventCards';
 
 function Events() {
   return (
-    <div className='page page-exit'>
-      <Cards />
+    <div>
+      <EventCards />
     </div>
   );
 }
