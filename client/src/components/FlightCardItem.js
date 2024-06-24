@@ -14,17 +14,11 @@ function FlightCardItem(props) {
           <div className='fcards__item__info'>
            <h5 className='fcards__item__text'>
               Dummy
-           </h5> {/*
-            <div className='fcard-item-date'>
-              <div className="day">{props.date.substring(8)}</div>
-              <div className="month">{months[Number(props.date.substring(5, 7))]}</div>
-            </div>
-            <p className='card-item-time'>{props.time.substring(0, 5)}</p>
-            <p>{props.venue}</p>
-            <p>{props.city}, {props.country !== 'United States Of America' ? props.country : 'USA'}</p>
-            <div className="btn-card-wrapper">
-              <Button buttonStyle='btn--card'>Select</Button>
-  </div> */}
+           </h5>
+           <div className='fcards__item__data'>
+             <p className='fcards__item__data-date'>{months[Number(props.day.substring(5, 7))] + ' ' + props.day.substring(8)}</p>
+             <p className={`fcards__item__data-price ${props.group=='low' ? 'low' : (props.group=='medium' ? 'medium' : 'high')}`}>{props.price}</p>
+           </div>      
           </div>
       </li>
     </>

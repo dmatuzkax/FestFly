@@ -6,7 +6,7 @@ import './SearchBar.css';
 
 function Navbar() {
   const location = useLocation();
-  const isEventsPage = location.pathname !== `/`;
+  const isEventsPage = location.pathname !== `/` && location.pathname !== '/flights';
 
   return (
     <>

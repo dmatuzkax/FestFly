@@ -43,10 +43,6 @@ h1 {
   filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
 }
 
-.fcards__item p {
-  margin: 0.5rem 0;
-}
-
 .fcards__item__icon-box {
   position: relative;
   width: 80px;
@@ -78,4 +74,39 @@ h1 {
   font-size: 18px;
   line-height: 24px;
   height: 72px;
+}
+
+.fcards__item__data {
+  white-space: nowrap;
+  width: 100%;
+}
+
+.fcards__item__data p {
+  display: inline-block;
+  
+}
+
+.fcards__item__data-date {
+  position: absolute;
+  top: 56px;
+  font-size: 18px;
+}
+
+.fcards__item__data-price {
+  position: absolute;
+  right: 30px;
+  font-size: 32px;
+  top: 40px; 
+}
+
+.low {
+  color: #77dd77
+}
+
+.medium {
+  color: #ffdb58;
+}
+
+.high {
+  color: #ff6961;
 }
