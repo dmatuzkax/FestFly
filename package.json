@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
+    "google-auth-library": "^9.11.0",
     "react-router-dom": "^6.23.1"
   },
   "devDependencies": {

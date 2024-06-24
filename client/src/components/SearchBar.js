@@ -13,7 +13,7 @@ function SearchBar(props) {
 
   useEffect(() => {
     const savedQuery = localStorage.getItem('searchQuery');
-    if (savedQuery && location.pathname !== '/') {
+    if (savedQuery && location.pathname !== '/' && location.pathname !== '/flights') {
       setInputValue(savedQuery);
       fetchSearchResults(savedQuery);
       setInputValue('');
@@ -26,7 +26,7 @@ function SearchBar(props) {
       setEvents(response.data);
       setSearchPerformed(true);
       navigate(`/events/${query}`);
-      
+
     } catch (error) {
       console.error('Error:', error);
     }

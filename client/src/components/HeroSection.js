@@ -1,8 +1,20 @@
 import React from 'react';
 import '../App.css';
 import { Button } from './Button';
+import './Button.css';
 import './HeroSection.css';
 import SearchBar from './SearchBar';
+import googleButton from '../assets/google_signin_buttons/web/1x/btn_google_signin_dark_pressed_web.png';
+
+function navigate(url) {
+  window.location.href = url;
+}
+
+async function auth() {
+  const response = await fetch('http://localhost:3001/request', {method: 'POST'});
+  const data = await response.json();
+  navigate(data.url);
+}
 
 function HeroSection() {
   return (
@@ -11,22 +23,15 @@ function HeroSection() {
       <h1>GET YOUR TICKETS NOW</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns'>
-        {/* <Button
-          className='btns'
-          buttonStyle='btn--outline'
-          buttonSize='btn--large'
-        >
-          SIGN IN
-        </Button> */}
-        <button className="gsi-material-button">
-            <div className="gsi-material-button-state"></div>
-            <div className="gsi-material-button-content-wrapper">
-              <i class="fa-brands fa-google"></i>
-              <span className="gsi-material-button-contents">Sign in with Google</span>
-            </div>
-          </button>
-          
+        <button type='button' onClick={() => auth()} className='gsi-material-button'>
+          <div className="gsi-material-button-content-wrapper">
+            <i class="fa-brands fa-google"></i>
+            <span className="gsi-material-button-contents">Sign in with Google</span>
+          </div>
+        </button>
       </div>
+
+
       <SearchBar />
     </div>
   );
