@@ -78,7 +78,10 @@ router.post('/flights', async (req, res) => {
     const results = await response.json();
 
     const flights = results.data;
-    res.json(flights);
+    res.json({
+      flights: flights,
+      iata: toEntityId
+    });
 
   } catch (error) {
     console.error(error);

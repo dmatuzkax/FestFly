@@ -11,23 +11,15 @@ function EventCardItem(props) {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   const savedSearch = localStorage.getItem('flightSearch');
-  //   if (savedSearch) {
-  //     const { city, date } = JSON.parse(savedSearch);
-  //     searchFlights(city, date);
-  //     localStorage.removeItem('flightSearch');
-  //   }
-  // }, [location.pathname]);
-
   const searchFlights = async (city, date) => {
     const response = await axios.post('http://localhost:3001/flights', {city: city, date: date});
-    console.log(response);
-    setFlights(response.data);
+    const {flights, iata} = response.data;
+    setFlights(flights);
     setClickPerformed(true);
     setConcertDate(date);
-    localStorage.setItem('flights', JSON.stringify(response.data));
+    localStorage.setItem('flights', JSON.stringify(flights));
     localStorage.setItem('concertDate', date);
+    localStorage.setItem('iata', iata);
     navigate('/flights');
   }
 

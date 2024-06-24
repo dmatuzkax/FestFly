@@ -13,11 +13,11 @@ function FlightCardItem(props) {
           </div>
           <div className='fcards__item__info'>
            <h5 className='fcards__item__text'>
-              Dummy
+              BOS - {props.iata}
            </h5>
            <div className='fcards__item__data'>
              <p className='fcards__item__data-date'>{months[Number(props.day.substring(5, 7))] + ' ' + props.day.substring(8)}</p>
-             <p className={`fcards__item__data-price ${props.group=='low' ? 'low' : (props.group=='medium' ? 'medium' : 'high')}`}>{props.price}</p>
+             <p className={`fcards__item__data-price ${props.group=='low' ? 'low' : (props.group=='medium' ? 'medium' : 'high')}`}>${props.price}</p>
            </div>      
           </div>
       </li>

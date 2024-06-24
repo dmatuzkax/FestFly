@@ -6,12 +6,14 @@ import { EventsContext } from './EventsContext';
 function FlightCards() {
 
   const { flights, setFlights, clickPerformed, concertDate, setClickPerformed, setConcertDate } = useContext(EventsContext);
+  const savedIATA = localStorage.getItem('iata');
 
   useEffect(() => {
 
     const retrieveFlightsFromStorage = () => {
       const savedFlights = localStorage.getItem('flights');
       const savedConcertDate = localStorage.getItem('concertDate');
+      const savedIATA = localStorage.getItem('iata');
 
       if (savedFlights && savedConcertDate) {
         setFlights(JSON.parse(savedFlights));
@@ -52,10 +54,11 @@ function FlightCards() {
 
   function FlightCard({flight}) {
     const { day, price, group } = flight;
+    const savedIATA = localStorage.getItem('iata');
 
     return(
       <>
-        <FlightCardItem  day = {day} price = {price} group={group} />
+        <FlightCardItem  day = {day} price = {price} group={group} iata={savedIATA}/>
       </>
         
       
