@@ -16,7 +16,7 @@ function SearchBar(props) {
     if (savedQuery && location.pathname !== '/' && location.pathname !== '/flights') {
       setInputValue(savedQuery);
       fetchSearchResults(savedQuery);
-      setInputValue('');
+      // setInputValue('');
     }
   }, [location.pathname]);
 
@@ -35,7 +35,7 @@ function SearchBar(props) {
   const handleKeyPress = async (event) => {
     if (event.key === 'Enter') {
       const artist = inputValue.trim();
-      setInputValue('');
+      // setInputValue('');
       if (artist !== '') {
           localStorage.setItem('searchQuery', artist);
           fetchSearchResults(artist);

@@ -4,7 +4,6 @@ import { Button } from './Button';
 import './Button.css';
 import './HeroSection.css';
 import SearchBar from './SearchBar';
-import googleButton from '../assets/google_signin_buttons/web/1x/btn_google_signin_dark_pressed_web.png';
 
 function navigate(url) {
   window.location.href = url;
