@@ -110,3 +110,7 @@ h1 {
 .high {
   color: #ff6961;
 }
+
+.no-flights-header {
+  margin-top: 40px;
+}

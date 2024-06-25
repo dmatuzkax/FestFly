@@ -6,8 +6,9 @@ dotenv.config();
 const {OAuth2Client} = require('google-auth-library'); 
 
 async function getUserData(access_token) {
-  const resposne = await fetch(`https://www.googleapis.com/oauth2/v3/userinfo?access_token${acess_token}`);
+  const response = await fetch(`https://www.googleapis.com/oauth2/v3/userinfo?access_token=${access_token}`);
   const data = await response.json();
+  console.log('data', data);
 }
 
 router.get('/', async (req, res, next) => {
@@ -20,16 +21,18 @@ router.get('/', async (req, res, next) => {
       redirectUrl
     );
     const response = await oAuth2Client.getToken(code);
-    await oAuth2Client.setCredentials(res.token);
-    console.log('Tokens.required');
+    await oAuth2Client.setCredentials(response.token);
+    console.log('Tokens acquired.');
     const user = oAuth2Client.credentials;
     console.log('credentials', user);
-    await getUserData(user.access_token);
+    await getUserData(oAuth2Client.credentials.access_token);
     next();
 
   } catch (err) {
     console.log('Error with signing in with Google');
   }
+
+  res.redirect(303, 'http://localhost:3000/home');
 });
 
 module.exports = router;

@@ -6,6 +6,7 @@ import Home from './pages/Home.js'
 import { EventsProvider } from './components/EventsContext';
 import Events from './pages/Events.js';
 import Flights from './pages/Flights.js';
+import SignIn from './pages/SignIn.js';
 
 function App() {
   
@@ -15,7 +16,8 @@ function App() {
         <Router>
           <Navbar/>
           <Routes>
-            <Route path="/" exact element={<Home />} />
+            <Route path="/" exact element={<SignIn />} />
+            <Route path="/home" exact element={<Home />} />
             <Route path="/events/:artist" exact element={<Events />} />
             <Route path="/flights" exact element={<Flights />} />
           </Routes>  

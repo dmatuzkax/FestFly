@@ -6,13 +6,13 @@ import './SearchBar.css';
 
 function Navbar() {
   const location = useLocation();
-  const isEventsPage = location.pathname !== `/`;
+  const isEventsPage = location.pathname !== `/` && location.pathname !== '/home';
 
   return (
     <>
       <nav className='navbar'>
         <div className='navbar-container'>
-          <Link to='/' className='navbar-logo'>
+          <Link to='/home' className='navbar-logo'>
             FestFly
             <i className='fa-solid fa-plane'/>
           </Link>

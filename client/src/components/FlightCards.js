@@ -36,7 +36,7 @@ function FlightCards() {
     return dayDiff > 0.5 && dayDiff <= 5;
   }
 
-  if (clickPerformed) {
+  if (clickPerformed && flights && flights.length !== 0) {
     return (
       <div className='fcards'>
         <div className="fcards__container">
@@ -50,7 +50,11 @@ function FlightCards() {
         </div>
       </div>
     );
-  } 
+  } else {
+    return (
+      <h1 className='no-flights-header'>No Flights Found :(</h1>
+    );
+  }
 
   function FlightCard({flight}) {
     const { day, price, group } = flight;
