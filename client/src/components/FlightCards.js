@@ -35,6 +35,7 @@ function FlightCards() {
     console.log(flightDateObj,concertDateObj, dayDiff > 0.5 && dayDiff <= 5);
     return dayDiff > 0.5 && dayDiff <= 5;
   }
+  // filter(flight => isFiveBefore(flight, concertDate))
 
   if (clickPerformed && flights && flights.length !== 0) {
     return (
@@ -42,8 +43,8 @@ function FlightCards() {
         <div className="fcards__container">
           <div className="fcards__wrapper">
             <ul className="fcards__items">
-              {flights.filter(flight => isFiveBefore(flight, concertDate)).map((flight, index) => (
-                <FlightCard flight={flight} key={index}/>
+              {flights.map((flight, index) => (
+                <FlightCard itinerary={flight} key={index}/>
               ))}
             </ul>
           </div>
@@ -56,13 +57,19 @@ function FlightCards() {
     );
   }
 
-  function FlightCard({flight}) {
-    const { day, price, group } = flight;
+  function FlightCard({itinerary}) {
+    // const { day, price, group } = flight;
+    // const savedIATA = localStorage.getItem('iata');
+    const { price, legs } = itinerary;
+    const flight = legs[0];
     const savedIATA = localStorage.getItem('iata');
 
     return(
+      // <>
+      //   <FlightCardItem  day = {day} price = {price.raw} group={group} iata={savedIATA}/>
+      // </>
       <>
-        <FlightCardItem  day = {day} price = {price} group={group} iata={savedIATA}/>
+        <FlightCardItem day = {flight.departure.substring(0,10)} price = {price.raw} departure={flight.departure.substring(11,16)} arrival={flight.arrival.substring(11,16)} iata={savedIATA}/>
       </>
         
       

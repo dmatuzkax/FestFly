@@ -60,15 +60,24 @@ router.post('/flights', async (req, res) => {
   const toEntityId = airports[0].iata_code;
   
   const newDate = new Date(date);
-  newDate.setDate(newDate.getDate() - 5);
+  newDate.setDate(newDate.getDate() - 1);
   const formattedDate = newDate.toISOString().split('T')[0];
   const departDate = formattedDate;
 
-  const url = `https://sky-scanner3.p.rapidapi.com/flights/cheapest-one-way?fromEntityId=${fromEntityId}&toEntityId=${toEntityId}&departDate=${departDate}`;
+  // const url = `https://sky-scanner3.p.rapidapi.com/flights/cheapest-one-way?fromEntityId=${fromEntityId}&toEntityId=${toEntityId}&departDate=${departDate}`;
+  // const options = {
+  //   method: 'GET',
+  //   headers: {
+  //     'x-rapidapi-key': '487b32aa85msh0e54bb90330fae0p1e2ea6jsnbf506a28dfe0',
+  //     'x-rapidapi-host': 'sky-scanner3.p.rapidapi.com'
+  //   }
+  // };
+
+  const url = `https://sky-scanner3.p.rapidapi.com/flights/search-one-way?fromEntityId=${fromEntityId}&toEntityId=${toEntityId}&departDate=${departDate}&cabinClass=economy`;
   const options = {
     method: 'GET',
     headers: {
-      'x-rapidapi-key': '487b32aa85msh0e54bb90330fae0p1e2ea6jsnbf506a28dfe0',
+      'x-rapidapi-key': 'c77a7ca544msh9483cb27bc8eaacp1932e0jsndcd300366e1a',
       'x-rapidapi-host': 'sky-scanner3.p.rapidapi.com'
     }
   };
@@ -76,11 +85,12 @@ router.post('/flights', async (req, res) => {
   try {
     const response = await fetch(url, options);
     const results = await response.json();
+    console.log(results);
 
-    const flights = results.data;
+    const flights = results.data.itineraries;
     res.json({
       flights: flights,
-      iata: toEntityId
+      iata: toEntityId,
     });
 
   } catch (error) {

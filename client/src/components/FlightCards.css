@@ -99,6 +99,19 @@ h1 {
   top: 40px; 
 }
 
+.fcards__item__time-departure {
+    position: absolute;
+    top: 84px;
+    left: 150px;
+    font-size: 20px;
+}
+.fcards__item__time-arrival {
+    position: absolute;
+    top: 84px;
+    left: 212px;
+    font-size: 20px;
+}
+
 .low {
   color: #77dd77
 }
