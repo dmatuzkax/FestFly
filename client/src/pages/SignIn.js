@@ -5,7 +5,7 @@ import HeroSection from '../components/HeroSection'
 function SignIn() {
   return (
     <div>
-      <HeroSection />
+      <HeroSection user={'none'}/>
     </div>
   );
 }

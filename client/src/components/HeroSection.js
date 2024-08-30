@@ -1,7 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import '../App.css';
-import { Button } from './Button';
 import './Button.css';
 import './HeroSection.css';
 import SearchBar from './SearchBar';
@@ -16,13 +15,20 @@ async function auth() {
   navigate(data.url);
 }
 
-function HeroSection() {
+function HeroSection(props) {
+  let user;
   const location = useLocation();
+
+  if (user && user !== 'none') {
+    user = props.user.toUpperCase();
+  }
+  
 
   return (
     <div className='hero-container'>
-     
-      <h1>GET YOUR TICKETS NOW</h1>
+      
+      {user && user !== 'NONE' && <h1> HI {user}, </h1> }
+      <h2> GET YOUR TICKETS NOW</h2>
       <p>What are you waiting for?</p>
       {location.pathname === '/'  && <div className='hero-btns'>
         <button type='button' onClick={() => auth()} className='gsi-material-button'>

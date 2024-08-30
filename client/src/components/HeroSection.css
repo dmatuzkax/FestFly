@@ -20,9 +20,15 @@ video {
 
 .hero-container > h1 {
   color: #fff;
-  font-size: 100px;
-  margin-top: -100px;
+  font-size: 64px;
+  margin-top: -200px;
+  margin-bottom: 0px;
 }
+
+.hero-container > h2 {
+    color: #fff;
+    font-size: 48px;
+  }
 
 .hero-container > p {
   margin-top: 8px;
