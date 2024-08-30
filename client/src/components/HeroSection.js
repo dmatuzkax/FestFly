@@ -19,7 +19,7 @@ function HeroSection(props) {
   let user;
   const location = useLocation();
 
-  if (user && user !== 'none') {
+  if (user !== 'none') {
     user = props.user.toUpperCase();
   }
   
@@ -27,7 +27,7 @@ function HeroSection(props) {
   return (
     <div className='hero-container'>
       
-      {user && user !== 'NONE' && <h1> HI {user}, </h1> }
+      {user !== 'NONE' && <h1> HI {user}, </h1> }
       <h2> GET YOUR TICKETS NOW</h2>
       <p>What are you waiting for?</p>
       {location.pathname === '/'  && <div className='hero-btns'>
