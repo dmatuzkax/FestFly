@@ -27,7 +27,8 @@ video {
 
 .hero-container > h2 {
     color: #fff;
-    font-size: 48px;
+    font-size: 80px;
+    margin-top: -120px;
   }
 
 .hero-container > p {

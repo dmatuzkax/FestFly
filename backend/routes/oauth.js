@@ -26,7 +26,8 @@ router.get('/', async (req, res, next) => {
     const user = oAuth2Client.credentials;
     console.log('credentials', user);
     const data = await getUserData(oAuth2Client.credentials.access_token);
-    res.redirect(303, `http://localhost:3000/home?user=${data.given_name}`);
+    console.log(data);
+    res.redirect(303, `http://localhost:3000/home`);
 
   } catch (err) {
     console.log('Error with signing in with Google', err);

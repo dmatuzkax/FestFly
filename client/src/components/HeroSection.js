@@ -16,18 +16,11 @@ async function auth() {
 }
 
 function HeroSection(props) {
-  let user;
   const location = useLocation();
-
-  if (user !== 'none') {
-    user = props.user.toUpperCase();
-  }
-  
 
   return (
     <div className='hero-container'>
       
-      {user !== 'NONE' && <h1> HI {user}, </h1> }
       <h2> GET YOUR TICKETS NOW</h2>
       <p>What are you waiting for?</p>
       {location.pathname === '/'  && <div className='hero-btns'>
