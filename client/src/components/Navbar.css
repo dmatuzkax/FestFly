@@ -74,3 +74,57 @@
 .menu-icon {
   display: none;
 }
+
+.user {
+    color: white;
+    margin-left: 650px;
+    display: flex;
+    position: absolute;
+    right: 50px;
+}
+
+.user p {
+    display: inline;
+    font-size: 16px;
+    align-self: center;
+    margin-right: 5px;
+    width: 180px;
+}
+
+.user img {
+    border-radius: 50px;
+    margin-left: -60px;
+    margin-right: 20px;
+}
+
+.user .btn {
+    padding: 8px 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'PT Sans', sans-serif;
+    width: 90px;
+    height: 40px;
+  }
+
+  .btn--primary {
+    background-color: #fff;
+    color: #242424;
+    border: 1px solid #242424;
+  }
+
+  .btn--primary:hover {
+    background: #242424;
+    color: #fff;
+    transition: all 0.3s ease-out;
+    border-color: #fff;
+  } 
+
+  .btn--sign-in {
+    position: absolute;
+    right: 10px;
+    align-self: center;
+    width: 90px;
+    height: 40px;
+  }

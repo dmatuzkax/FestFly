@@ -16,8 +16,8 @@ function App() {
         <Router>
           <Navbar/>
           <Routes>
-            <Route path="/" exact element={<SignIn />} />
-            <Route path="/home" exact element={<Home />} />
+            {/* <Route path="/" exact element={<SignIn />} /> */}
+            <Route path="/" exact element={<Home />} />
             <Route path="/events/:artist" exact element={<Events />} />
             <Route path="/flights" exact element={<Flights />} />
           </Routes>  

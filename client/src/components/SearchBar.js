@@ -13,10 +13,9 @@ function SearchBar(props) {
 
   useEffect(() => {
     const savedQuery = localStorage.getItem('searchQuery');
-    if (savedQuery && location.pathname !== '/home' && location.pathname !== '/flights') {
+    if (savedQuery && location.pathname !== '/' && location.pathname !== '/flights') {
       setInputValue(savedQuery);
       fetchSearchResults(savedQuery);
-      // setInputValue('');
     }
   }, [location.pathname]);
 
@@ -35,7 +34,6 @@ function SearchBar(props) {
   const handleKeyPress = async (event) => {
     if (event.key === 'Enter') {
       const artist = inputValue.trim();
-      // setInputValue('');
       if (artist !== '') {
           localStorage.setItem('searchQuery', artist);
           fetchSearchResults(artist);
@@ -45,7 +43,7 @@ function SearchBar(props) {
 
   return (
       <form onSubmit={(e) => e.preventDefault()}>
-        <input type='text' className={props.size === 'small' ? 'small-search-bar' :'search-bar'} placeholder='Search for your Favorite Artists...' value={inputValue}
+        <input type='text' className={props.size === 'small' ? 'small-search-bar' :'search-bar'} placeholder='Search for your Favorite Artists...' value={props.input || inputValue}
         onChange={(e) => setInputValue(e.target.value)} onKeyDown={handleKeyPress} />
       </form>
   )
